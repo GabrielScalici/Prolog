@@ -1,4 +1,4 @@
-fila[claudio|paula, fernando, danilo].
+fila([claudio,paula]).
 masc(danilo).
 masc(fernando).
 masc(claudio).
