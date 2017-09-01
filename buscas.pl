@@ -1,3 +1,4 @@
+%fatos simples
 pode_ir(a,b).
 pode_ir(a,c).
 pode_ir(a,d).
@@ -8,12 +9,13 @@ pode_ir(d,h).
 pode_ir(h,k).
 pode_ir(h,j).
 
+%Saber se pertence, importante
 pertence(E, [E|_]) :- !.
 pertence(E, [_|T]) :-
   pertence(E,T).
 
 
-%Caminho comecando de k para a
+%Caminho comecando de Final para Inicial
 caminho_busca_pro_tras(EI, EF, Cam) :-
   caminho_p_t(EF, [EI], Cam).
 
@@ -25,7 +27,7 @@ caminho_busca_pro_tras(EI, EF, Cam) :-
     caminho_p_t(EF, [X, Eaux|Caminho_percorrido], Cam).
 
 
-
+%Caminho comecando de Inicial para Final
 caminho_busca_pro_frente(EI, EF, Cam) :-
   caminho_p_f(EI, [EF], Cam).
 
