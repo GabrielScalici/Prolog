@@ -13,6 +13,7 @@ pertence(E, [_|T]) :-
   pertence(E,T).
 
 
+
 caminho_busca_pro_tras(EI, EF, Cam) :-
   caminho_p_t(EF, [EI], Cam).
 
@@ -22,3 +23,15 @@ caminho_busca_pro_tras(EI, EF, Cam) :-
     pode_ir(Eaux, X),
     not(pertence(X, Caminho_percorrido)),
     caminho_p_t(EF, [X, Eaux|Caminho_percorrido], Cam).
+
+
+
+caminho_busca_pro_frente(EI, EF, Cam) :-
+  caminho_p_f(EI, [EF], Cam).
+
+  caminho_p_f(EI, [EI|Cam], [EI|Cam]).
+
+  caminho_p_f(EI, [Eaux|Caminho_percorrido],Cam) :-
+    pode_ir(X, Eaux),
+      not(pertence(X, Caminho_percorrido)),
+      caminho_p_f(EI, [X, Eaux|Caminho_percorrido], Cam).
